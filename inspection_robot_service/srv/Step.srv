@@ -1,0 +1,7 @@
+float64 action # action
+---
+sensor_msgs/Image observation # next state
+float64 reward # reward
+bool done
+uint8 info
+

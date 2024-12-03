@@ -1,0 +1,19 @@
+<launch>
+    <arg name="robot_ip" default="192.168.1.102"/>
+
+    <!-- Choose controller manager: fake, simple, or ros_control -->
+    <arg name="moveit_controller_manager" default="simple" />
+
+    <include file="$(find inspection_cell_support)/launch/robot_startup.launch">
+        <arg name="robot_ip" value="$(arg robot_ip)"/>
+    </include>
+
+    <include file="$(find ur5e_inspection_moveit_config)/launch/move_group.launch">
+        <arg name="publish_monitored_planning_scene" value="true" />
+        <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
+    </include>
+
+    <include file="$(find ur5e_inspection_moveit_config)/launch/moveit_rviz.launch">
+        <arg name="rviz_config" value="$(find inspection_cell_support)/config/demo.rviz"/>
+    </include >
+</launch>

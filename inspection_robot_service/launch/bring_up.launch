@@ -1,0 +1,11 @@
+<launch>
+    <arg name="sim_robot" default="true" />
+    <arg name="sim_camera" default="true" />
+    <arg name="part_num" default="3" />
+
+    <node name="robot_service_node" pkg="inspection_robot_service" type="robot_service.py" output="screen">
+      <param name="sim_robot" value="$(arg sim_robot)" />
+      <param name="sim_camera" value="$(arg sim_camera)" />
+      <param name="part_num" value="$(arg part_num)" />
+    </node>
+</launch>
